@@ -1,0 +1,19 @@
+<odoo>
+
+    <template id="book_list_template" name="Book List">
+        <link rel="stylesheet" type="text/css" href="/library_app/static/src/css/book_list.css"/>
+        <h1>Books</h1>
+        <div id="wrap" class="container">
+            <t t-foreach="books" t-as="book">
+                <div class="row">
+                    <h1><span t-field="book.name" /></h1>
+                    <img t-attf-src="data:image/*;base64,{{book.image}}"/>
+                    <p><span t-field="book.author_ids" /></p>
+                    <p><span t-field="book.publisher_id" /></p>
+                    <p><span t-field="book.date_published" /></p>
+                </div>
+            </t>
+        </div>
+    </template>
+
+</odoo>
