@@ -7,4 +7,4 @@ class Member(models.Model):
     _inherits = {"res.partner": "partner_id"}
     _inherit = ["mail.thread", "mail.activity.mixin"]
     card_number = fields.Char()
-    partner_id = fields.Many2one("res.partner", ondelete="cascade", required=True)
+    partner_id = fields.Many2one(comodel_name="res.partner", ondelete="cascade", required=True)

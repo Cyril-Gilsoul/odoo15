@@ -4,11 +4,13 @@
         <field name="model">library.member</field>
         <field name="arch" type="xml">
             <form>
-                <group>
-                    <field name="name"/>
-                    <field name="email" />
-                    <field name="card_number" />
-                </group>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="email" />
+                        <field name="card_number" />
+                    </group>
+                </sheet>
                 <!-- mail mixin fields -->
                 <div class="oe_chatter">
                     <field name="message_follower_ids" widget="mail_followers" />
