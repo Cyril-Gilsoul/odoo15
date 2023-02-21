@@ -9,10 +9,10 @@ class Book(models.Model):
     # String fields:
     name = fields.Char(string="Title")
     isbn = fields.Char(string="ISBN")
-    book_type = fields.Selection([("paper", "Paperback"),
-                                  ("hard", "Hardcover"),
-                                  ("electronic", "Electronic"),
-                                  ("other", "Other")], "Type")
+    book_type = fields.Selection(selection=[("paper", "Paperback"),
+                                            ("hard", "Hardcover"),
+                                            ("electronic", "Electronic"),
+                                            ("other", "Other")], string="Type")
     notes = fields.Text(string="Internal Notes")
     descr = fields.Html(string="Description")
 
@@ -26,7 +26,7 @@ class Book(models.Model):
 
     # Date and time fields:
     date_published = fields.Date()
-    last_borrow_date = fields.Datetime("Last Borrowed On", default=lambda self: fields.Datetime.now())
+    last_borrow_date = fields.Datetime(string="Last Borrowed On", default=lambda self: fields.Datetime.now())
 
     # Other fields:
     active = fields.Boolean("Active?")
