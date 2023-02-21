@@ -10,4 +10,5 @@
     <menuitem name="Books" id="menu_books" web_icon="library_app,static/description/icon.png"/>
     <!-- Menu item to open the Book list -->
     <menuitem id="menu_library_book" name="Books" parent="menu_library" action="action_library_book"/>
+    <menuitem id="menu_library_configuration" name="Configuration" parent="menu_library"/>
 </odoo>

@@ -7,7 +7,7 @@ class Book(models.Model):
     _description = "Book"
 
     # String fields:
-    name = fields.Char(string="Title")
+    name = fields.Char(string="Title", required=True)
     isbn = fields.Char(string="ISBN")
     book_type = fields.Selection(selection=[("paper", "Paperback"),
                                             ("hard", "Hardcover"),
