@@ -20,6 +20,18 @@ class Checkout(models.Model):
     checkout_date = fields.Date(readonly=True)
     close_date = fields.Date(readonly=True)
 
+    @api.depends("member_id")
+    def _compute_request_date_onchange(self):
+        today_date = fields.Date.today()
+        if self.request_date != today_date:
+            self.request_date = today_date
+            return {
+                "warning": {
+                    "title": "Changed Request Date",
+                    "message": "Request date changed to today!",
+                }
+            }
+
     @api.model
     def _default_stage_id(self):
         Stage = self.env["library.checkout.stage"]
@@ -75,3 +87,6 @@ class Checkout(models.Model):
             if new_state != old_state and new_state == "done":
                 self.with_context(_checkout_write=True).write({"close_date": fields.Date.today()})
         return True
+
+
+
