@@ -1,4 +1,4 @@
-from odoo import api,exceptions, fields, models
+from odoo import api, exceptions, fields, models
 
 
 class CheckoutLine(models.Model):
